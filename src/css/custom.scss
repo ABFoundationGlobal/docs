@@ -6,11 +6,10 @@
 
 @use "sass:color";
 @use "sass:map";
-@import "helpers";
 
 // Themes are WIP
 // Change Theme Appearance Profile
-@import "themes/pure"; 
+@use "themes/pure"; 
 // "themes/pure": a cleaner theme
 // "themes/classic": default docusaurus classic theme profile
 

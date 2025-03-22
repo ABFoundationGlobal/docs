@@ -1,123 +1,93 @@
+@use "sass:color";
+@use "sass:map";
+
 // Create a file `theme_base.scss` to override settings
 
 /* Infima UI */
 :root {
   --ifm-color-primary: #{map.get($light-theme, "color-primary")};
-  --site-color-primary-rgb: #{red(map.get($light-theme, "color-primary")),
-    green(map.get($light-theme, "color-primary")),
-    blue(map.get($light-theme, "color-primary"))};
+  --site-color-primary-rgb: #{color.channel(map.get($light-theme, "color-primary"), "red", $space: rgb),
+    color.channel(map.get($light-theme, "color-primary"), "green", $space: rgb),
+    color.channel(map.get($light-theme, "color-primary"), "blue", $space: rgb)};
 
   --ifm-color-primary-dark: #{map.get($light-theme, "color-primary-dark")};
-  --site-color-primary-dark-rgb: #{red(
-        map.get($light-theme, "color-primary-dark")
-      ),
-    green(map.get($light-theme, "color-primary-dark")),
-    blue(map.get($light-theme, "color-primary-dark"))};
+  --site-color-primary-dark-rgb: #{color.channel(map.get($light-theme, "color-primary-dark"), "red", $space: rgb),
+    color.channel(map.get($light-theme, "color-primary-dark"), "green", $space: rgb),
+    color.channel(map.get($light-theme, "color-primary-dark"), "blue", $space: rgb)};
 
   --ifm-color-primary-darker: #{map.get($light-theme, "color-primary-darker")};
-  --site-color-primary-darker-rgb: #{red(
-        map.get($light-theme, "color-primary-darker")
-      ),
-    green(map.get($light-theme, "color-primary-darker")),
-    blue(map.get($light-theme, "color-primary-darker"))};
+  --site-color-primary-darker-rgb: #{color.channel(map.get($light-theme, "color-primary-darker"), "red", $space: rgb),
+    color.channel(map.get($light-theme, "color-primary-darker"), "green", $space: rgb),
+    color.channel(map.get($light-theme, "color-primary-darker"), "blue", $space: rgb)};
 
   --ifm-color-primary-darkest: #{map.get($light-theme, "color-primary-darkest")};
-  --site-color-primary-darkest-rgb: #{red(
-        map.get($light-theme, "color-primary-darkest")
-      ),
-    green(map.get($light-theme, "color-primary-darkest")),
-    blue(map.get($light-theme, "color-primary-darkest"))};
+  --site-color-primary-darkest-rgb: #{color.channel(map.get($light-theme, "color-primary-darkest"), "red", $space: rgb),
+    color.channel(map.get($light-theme, "color-primary-darkest"), "green", $space: rgb),
+    color.channel(map.get($light-theme, "color-primary-darkest"), "blue", $space: rgb)};
 
   --ifm-color-primary-light: #{map.get($light-theme, "color-primary-light")};
-  --site-color-primary-light-rgb: #{red(
-        map.get($light-theme, "color-primary-light")
-      ),
-    green(map.get($light-theme, "color-primary-light")),
-    blue(map.get($light-theme, "color-primary-light"))};
+  --site-color-primary-light-rgb: #{color.channel(map.get($light-theme, "color-primary-light"), "red", $space: rgb),
+    color.channel(map.get($light-theme, "color-primary-light"), "green", $space: rgb),
+    color.channel(map.get($light-theme, "color-primary-light"), "blue", $space: rgb)};
 
   --ifm-color-primary-lighter: #{map.get($light-theme, "color-primary-lighter")};
-  --site-color-primary-lighter-rgb: #{red(
-        map.get($light-theme, "color-primary-lighter")
-      ),
-    green(map.get($light-theme, "color-primary-lighter")),
-    blue(map.get($light-theme, "color-primary-lighter"))};
+  --site-color-primary-lighter-rgb: #{color.channel(map.get($light-theme, "color-primary-lighter"), "red", $space: rgb),
+    color.channel(map.get($light-theme, "color-primary-lighter"), "green", $space: rgb),
+    color.channel(map.get($light-theme, "color-primary-lighter"), "blue", $space: rgb)};
 
-  --ifm-color-primary-lightest: #{map.get(
-      $light-theme,
-      "color-primary-lightest"
-    )};
-  --site-color-primary-lightest-rgb: #{red(
-        map.get($light-theme, "color-primary-lightest")
-      ),
-    green(map.get($light-theme, "color-primary-lightest")),
-    blue(map.get($light-theme, "color-primary-lightest"))};
+  --ifm-color-primary-lightest: #{map.get($light-theme, "color-primary-lightest")};
+  --site-color-primary-lightest-rgb: #{color.channel(map.get($light-theme, "color-primary-lightest"), "red", $space: rgb),
+    color.channel(map.get($light-theme, "color-primary-lightest"), "green", $space: rgb),
+    color.channel(map.get($light-theme, "color-primary-lightest"), "blue", $space: rgb)};
 
   --ifm-link-color: var(--ifm-color-primary);
 
   --ifm-background-color: #{map.get($light-theme, "color-background")};
 
-  --ifm-navbar-background-color: #{map.get(
-      $light-theme,
-      "navbar-background-color"
-    )};
+  --ifm-navbar-background-color: #{map.get($light-theme, "navbar-background-color")};
 }
 
 [data-theme="dark"] {
   --ifm-color-primary: #{map.get($dark-theme, "color-primary")};
-  --site-color-primary-rgb: #{red(map.get($dark-theme, "color-primary")),
-    green(map.get($dark-theme, "color-primary")),
-    blue(map.get($dark-theme, "color-primary"))};
+  --site-color-primary-rgb: #{color.channel(map.get($dark-theme, "color-primary"), "red", $space: rgb),
+    color.channel(map.get($dark-theme, "color-primary"), "green", $space: rgb),
+    color.channel(map.get($dark-theme, "color-primary"), "blue", $space: rgb)};
 
   --ifm-color-primary-dark: #{map.get($dark-theme, "color-primary-dark")};
-  --site-color-primary-dark-rgb: #{red(
-        map.get($dark-theme, "color-primary-dark")
-      ),
-    green(map.get($dark-theme, "color-primary-dark")),
-    blue(map.get($dark-theme, "color-primary-dark"))};
+  --site-color-primary-dark-rgb: #{color.channel(map.get($dark-theme, "color-primary-dark"), "red", $space: rgb),
+    color.channel(map.get($dark-theme, "color-primary-dark"), "green", $space: rgb),
+    color.channel(map.get($dark-theme, "color-primary-dark"), "blue", $space: rgb)};
 
   --ifm-color-primary-darker: #{map.get($dark-theme, "color-primary-darker")};
-  --site-color-primary-darker-rgb: #{red(
-        map.get($dark-theme, "color-primary-darker")
-      ),
-    green(map.get($dark-theme, "color-primary-darker")),
-    blue(map.get($dark-theme, "color-primary-darker"))};
+  --site-color-primary-darker-rgb: #{color.channel(map.get($dark-theme, "color-primary-darker"), "red", $space: rgb),
+    color.channel(map.get($dark-theme, "color-primary-darker"), "green", $space: rgb),
+    color.channel(map.get($dark-theme, "color-primary-darker"), "blue", $space: rgb)};
 
   --ifm-color-primary-darkest: #{map.get($dark-theme, "color-primary-darkest")};
-  --site-color-primary-darkest-rgb: #{red(
-        map.get($dark-theme, "color-primary-darkest")
-      ),
-    green(map.get($dark-theme, "color-primary-darkest")),
-    blue(map.get($dark-theme, "color-primary-darkest"))};
+  --site-color-primary-darkest-rgb: #{color.channel(map.get($dark-theme, "color-primary-darkest"), "red", $space: rgb),
+    color.channel(map.get($dark-theme, "color-primary-darkest"), "green", $space: rgb),
+    color.channel(map.get($dark-theme, "color-primary-darkest"), "blue", $space: rgb)};
 
   --ifm-color-primary-light: #{map.get($dark-theme, "color-primary-light")};
-  --site-color-primary-light-rgb: #{red(
-        map.get($dark-theme, "color-primary-light")
-      ),
-    green(map.get($dark-theme, "color-primary-light")),
-    blue(map.get($dark-theme, "color-primary-light"))};
+  --site-color-primary-light-rgb: #{color.channel(map.get($dark-theme, "color-primary-light"), "red", $space: rgb),
+    color.channel(map.get($dark-theme, "color-primary-light"), "green", $space: rgb),
+    color.channel(map.get($dark-theme, "color-primary-light"), "blue", $space: rgb)};
 
   --ifm-color-primary-lighter: #{map.get($dark-theme, "color-primary-lighter")};
-  --site-color-primary-lighter-rgb: #{red(
-        map.get($dark-theme, "color-primary-lighter")
-      ),
-    green(map.get($dark-theme, "color-primary-lighter")),
-    blue(map.get($dark-theme, "color-primary-lighter"))};
+  --site-color-primary-lighter-rgb: #{color.channel(map.get($dark-theme, "color-primary-lighter"), "red", $space: rgb),
+    color.channel(map.get($dark-theme, "color-primary-lighter"), "green", $space: rgb),
+    color.channel(map.get($dark-theme, "color-primary-lighter"), "blue", $space: rgb)};
 
   --ifm-color-primary-lightest: #{map.get($dark-theme, "color-primary-lightest")};
-  --site-color-primary-lightest-rgb: #{red(
-        map.get($dark-theme, "color-primary-lightest")
-      ),
-    green(map.get($dark-theme, "color-primary-lightest")),
-    blue(map.get($dark-theme, "color-primary-lightest"))};
+  --site-color-primary-lightest-rgb: #{color.channel(map.get($dark-theme, "color-primary-lightest"), "red", $space: rgb),
+    color.channel(map.get($dark-theme, "color-primary-lightest"), "green", $space: rgb),
+    color.channel(map.get($dark-theme, "color-primary-lightest"), "blue", $space: rgb)};
 
   --ifm-link-color: var(--ifm-color-primary);
 
   --ifm-background-color: #{map.get($dark-theme, "color-background")};
 
-  --ifm-navbar-background-color: #{map.get(
-      $dark-theme,
-      "navbar-background-color"
-    )};
+  --ifm-navbar-background-color: #{map.get($dark-theme, "navbar-background-color")};
 }
 
 /**
