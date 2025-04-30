@@ -1,7 +1,7 @@
 ---
 sidebar_position: 1
-slug: /
-title: "AB IoT Technical Information"
+slug: /core
+title: "AB Core Technical Information"
 ---
 
 
@@ -11,31 +11,23 @@ title: "AB IoT Technical Information"
   [https://ab.org/](https://ab.org/)
 
 - **Blockchain Explorer**:  
-  - **Mainnet**: [https://explorer.ab.org/](https://explorer.ab.org/)  
-  - **Testnet**: [https://explorer.testnet.ab.org/](https://explorer.testnet.ab.org/)
+  - **Mainnet**: [N/A]  
+  - **Testnet**: [https://explorer.core.testnet.ab.org/](https://explorer.core.testnet.ab.org/)
 
 - **Blockchain Source Code**:  
-  [https://github.com/newtonproject/newchain/](https://github.com/newtonproject/newchain/)
+  [https://github.com/ABFoundationGlobal/abcore](https://github.com/ABFoundationGlobal/abcore)
 
 - **Circulation and Total Supply**:  
   [https://ab.org/en/getab/](https://ab.org/en/getab/)
 
 ---
 
-## Key Differences Between AB IoT and Ethereum
+## Key Differences Between AB Core and Ethereum
 
-1. **Signature Algorithm**:  
-   - Ethereum uses `secp256k1`, while AB IoT uses `secp256r1`.
 
-2. **Address Representation**:  
-   - Addresses are transformed before being displayed to users.  
-   - Users see addresses starting with `NEW` (e.g., `NEW182F3f3q8CFM3od4RkjWPPEx6vAcBJpVdurC`).  
-   - The SDK provides code for two-way address conversion.
+AB Core is fully compatible with Ethereum, supporting standard EVM contracts and developer tools. 
 
-3. **Address Validation**:  
-   - Ensure that the ChainID parsed from the user's submitted address matches the current network’s ChainID.  
-   - Failing to do so may result in transaction failures or asset loss.  
-   - For specific address parsing methods, refer to the example code.
+However, AB Core currently supports up to the `Berlin` hard fork and does not implement EIP-1559 (BaseFee and gas burning) introduced in the London upgrade, nor any subsequent upgrades such as Shanghai or Dencun.
 
 ---
 
@@ -52,7 +44,7 @@ title: "AB IoT Technical Information"
   A transaction is considered secure after 20 block confirmations.
 
 - **Node Deployment**:  
-  [https://github.com/newtonproject/newchain-deploy](https://github.com/newtonproject/newchain-deploy)
+  [https://github.com/ABFoundationGlobal/ab-deploy](https://github.com/ABFoundationGlobal/ab-deploy)
 
 ---
 
@@ -60,20 +52,16 @@ title: "AB IoT Technical Information"
 
 - **RPC Service Endpoints**:
   - **Mainnet (MainNet)**:  
-    - https://global.rpc.iot.ab.org
-    - https://apne1.rpc.iot.ab.org
-  - **Testnet (TestNet)**:  
-    [https://rpc1.newchain.newtonproject.org](https://rpc1.newchain.newtonproject.org)
+    - N/A
+  - **Testnet (TestNet)**:
+    - [https://rpc.core.testnet.ab.org](https://rpc.core.testnet.ab.org)
 
 - **ChainID**:
-  - **Mainnet (MainNet)**: `1012`
-  - **Testnet (TestNet)**: `1007`
-
-- **Sample Code**:  
-  [https://github.com/newtonproject/newchain-sdk-example](https://github.com/newtonproject/newchain-sdk-example)
+  - **Mainnet (MainNet)**: `36888`
+  - **Testnet (TestNet)**: `26888`
 
 - **Available RPC APIs**:  
-  Currently, AB IoT provides the following APIs for open use. For additional APIs, deploy your own node:
+  Currently, AB Core RPC provides the following APIs for open use. For additional APIs, deploy your own node:
 
 ```plaintext
 "net_version",
@@ -117,3 +105,4 @@ title: "AB IoT Technical Information"
 "eth_getLogs",
 "eth_chainId",
 "eth_getProof"
+```

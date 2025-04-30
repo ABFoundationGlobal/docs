@@ -1,26 +1,26 @@
 ---
 sidebar_position: 1
-slug: /
-title: "AB IoT 技术信息"
+slug: /core
+title: "AB Core 技术信息"
 ---
 
 
 ## 基本资料
 1. 项目方官网
-    - https://ab.org/
+    - [https://ab.org/](https://ab.org/)
 2. 区块链浏览器地址
-    - 主网： https://explorer.ab.org/
-    - 测试网： https://explorer.testnet.ab.org/
+    - 主网： [N/A]
+    - 测试网：[https://explorer.core.testnet.ab.org/](https://explorer.core.testnet.ab.org/)
 3. 区块链源码：
-    - https://github.com/newtonproject/newchain/
+    - [https://github.com/ABFoundationGlobal/abcore](https://github.com/ABFoundationGlobal/abcore)
 5. 发行量和流通量：
     - https://ab.org/en/getab/
 
-## AB IoT与Ethereum的主要区别：
-  1. 签名算法：将Ethereum用的secp256k1改成了AB IoT用的secp256r1
-  2. 地址需要通过转换后再展现给用户（用户看到的是NEW开头的地址，示例：NEW182F3f3q8CFM3od4RkjWPPEx6vAcBJpVdurC）。
-  3. SDK里面已经提供的地址双向转换的代码。
-  4. 请务必对用户提交的地址进行校验，确保地址解析出来的ChainID与当前网络的ChainID一致，否则会造成交易失败或者资产丢失。具体地址解析方法请参考example代码。
+## AB Core与Ethereum的主要区别：
+
+AB Core 与 Ethereum 完全兼容，支持所有标准 EVM 合约与开发工具。
+
+不过，AB Core 当前仅支持至 `Berlin` 硬分叉，不支持 London 分叉中引入的 EIP-1559（含 BaseFee 与 Gas 销毁机制），也未启用其后的 Shanghai、Dencun 等升级。
 
 
 ## 区块链相关信息
@@ -31,25 +31,21 @@ title: "AB IoT 技术信息"
 3. 普通交易安全到账所需的确认区块数量
     - 20个区块确认后可以认为安全。
 4. 自建节点
-    - https://github.com/newtonproject/newchain-deploy
+    - [https://github.com/ABFoundationGlobal/ab-deploy](https://github.com/ABFoundationGlobal/ab-deploy)
 
 ## API 
 
 1. RPC服务地址
     - 主网(MainNet):
-      - https://global.rpc.iot.ab.org
-      - https://apne1.rpc.iot.ab.org
+      - N/A
     - 测试网(TestNet):
-      - https://rpc1.newchain.newtonproject.org
+      - [https://rpc.core.testnet.ab.org](https://rpc.core.testnet.ab.org)
 
 2. ChainID
-    - 主网(MainNet): 1012
-    - 测试网(TestNet): 1007
+    - 主网(MainNet): `36888`
+    - 测试网(TestNet): `26888`
 
-3. 示例代码：
-    - https://github.com/newtonproject/newchain-sdk-example
-
-4. 目前AB IoT提供的RPC服务开放使用的API包括如下：（如需更多接口请自建节点）
+3. 目前AB Core提供的RPC服务开放使用的API包括如下：（如需更多接口请自建节点）
 ```
     "net_version",  
     "net_peerCount",  
