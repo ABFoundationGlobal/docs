@@ -405,3 +405,75 @@ the  `History` is as follow:
 ```
 
 </details>
+
+
+<details>
+ <summary><code>GET</code> <code><b>/v1/ab</b></code> <code>(get supply of AB)</code></summary>
+
+#### Parameters
+
+> None
+
+#### Responses
+
+
+> | name     | value     | desc           |
+> |----------|-----------|----------------|
+> | `chains`   | `Chain` | chain list   |
+
+
+the  `Chain` is as follow:
+ 
+> | name                     | value                | desc                                |
+> |--------------------------|----------------------|-------------------------------------|
+> | `slug`                   | `abcore`,`abiot`     | slug of blockchain, get by `/v1/networks`|
+> | `network`             | `ABCore`,`ABIoT` | network of blockchain |
+> | `chain_id`   | string, `1`, `1012` or `main`, `test` | get from rpc, `eth_chainId` |
+> | `base_chain` | `Ethereum`, `NewChain`          | Base chain |
+> | `status`                | `OK`,`STUCK`, `OFFLINE`, `SYNCING` | status of chain |
+> | `latest_height`        | number | latest block number        |
+> | `name`     | `AB`   |  the name of AB in this chain |
+> | `symbol`            | `AB`               | the symbol of AB in this chain |
+> | `decimals`            | `18`               | the decimals of AB in this chain |
+> | `supply`            | string               | the amount of AB in unit `AB` |
+
+The `totalSupply` of `AB` is the sum of the `supply` from each chain.
+
+##### Example cURL
+
+> ```javascript
+>  curl http://localhost:9399/v1/ab
+> ```
+
+```json
+{
+  "chains": [
+    {
+      "slug": "abcoretestnet",
+      "network": "ABCoreTestnet",
+      "chain_id": "26888",
+      "base_chain": "Ethereum",
+      "status": "OK",
+      "latest_height": "4648796",
+      "name": "AB",
+      "symbol": "AB",
+      "decimals": 18,
+      "supply": "80.05"
+    },
+    {
+      "slug": "abiottestnet",
+      "network": "ABIoTTestnet",
+      "chain_id": "1007",
+      "base_chain": "NewChain",
+      "status": "OK",
+      "latest_height": "15391173",
+      "name": "AB",
+      "symbol": "AB",
+      "decimals": 18,
+      "supply": "99999999919.95"
+    }
+  ]
+}
+```
+
+</details>
