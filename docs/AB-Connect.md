@@ -30,12 +30,12 @@ In simple terms, AB Connect, as the core connector, links AB Core and the dedica
 
 ####
 
-> | name         | value                                                    | desc                                                                        |
-> |--------------|----------------------------------------------------------|-----------------------------------------------------------------------------|
-> | `network`    | `ABCore`, `ABIoT` | blockchain network name of AB network|
-> | `chain_id`   | `1`, `1012` or `main`, `test`                            | get from rpc, `eth_chainId` for evm |
-> | `base_chain` | `Ethereum`, `NewChain`          | Base chain                                                                  |
-> | `slug`       | uuid                                                     | uid string                                                                  |
+> | name         | value                                                           | desc                                 |
+> |--------------|-----------------------------------------------------------------|--------------------------------------|
+> | `network`    | `ABCore`, `ABIoT`, `ABCoreTestnet`, `ABIoTTestnet`              | blockchain network name of AB network|
+> | `chain_id`   | `1`, `1012` or `main`, `test`                                   | get from rpc, `eth_chainId` for evm  |
+> | `base_chain` | `Ethereum`, `NewChain`                                          | Base chain                           |
+> | `slug`       | uuid, one of `abcore`, `abiot`, `abcoretestnet`, `abiottestnet` | uid                                  |
 
 ##### Example
 
@@ -93,8 +93,8 @@ array of `Blockchain`
 
 #### Example cURL
 
-> ```javascript
->  curl http://localhost:9399/v1/networks
+> ```bash
+>  curl http://localhost:9699/v1/networks
 > ```
 
 ```json
@@ -102,13 +102,13 @@ array of `Blockchain`
   "networks": [
     {
       "network": "ABCore",
-      "chain_id": "26888",
+      "chain_id": "36888",
       "base_chain": "Ethereum",
       "slug": "abcore"
     },
     {
       "network": "ABIoT",
-      "chain_id": "1007",
+      "chain_id": "1012",
       "base_chain": "NewChain",
       "slug": "abiot"
     }
@@ -134,24 +134,26 @@ array of `Blockchain`
 
 #### Example cURL
 
-> ```javascript
->  curl http://localhost:9399/v1/connects
+> ```bash
+>  curl http://localhost:9699/v1/connects
 > ```
 
 ```json
 {
-  "networks": [
+  "connects": [
     {
-      "network": "ABCore",
-      "chain_id": "26888",
-      "base_chain": "Ethereum",
-      "slug": "abcore"
-    },
-    {
-      "network": "ABIoT",
-      "chain_id": "1007",
-      "base_chain": "NewChain",
-      "slug": "abiot"
+      "bc1": {
+        "network": "ABCore",
+        "chain_id": "36888",
+        "base_chain": "Ethereum",
+        "slug": "abcore"
+      },
+      "bc2": {
+        "network": "ABIoT",
+        "chain_id": "1012",
+        "base_chain": "NewChain",
+        "slug": "abiot"
+      }
     }
   ]
 }
@@ -187,8 +189,8 @@ array of `Blockchain`
 
 #### Example cURL
 
-> ```javascript
->  curl http://localhost:9399/v1/pairs
+> ```bash
+>  curl http://localhost:9699/v1/pairs
 > ```
 
 ```json
@@ -205,10 +207,10 @@ array of `Blockchain`
         "symbol": "AB",
         "decimals": 18,
         "asset_type": "Coin",
-        "network": "ABCoreTestnet",
-        "chain_id": "26888",
+        "network": "ABCore",
+        "chain_id": "36888",
         "base_chain": "Ethereum",
-        "slug": "abcoretestnet"
+        "slug": "abcore"
       },
       "asset_b": {
         "id": "2",
@@ -217,10 +219,10 @@ array of `Blockchain`
         "symbol": "AB",
         "decimals": 18,
         "asset_type": "Coin",
-        "network": "ABIoTTestnet",
-        "chain_id": "1007",
+        "network": "ABIoT",
+        "chain_id": "1012",
         "base_chain": "NewChain",
-        "slug": "abiottestnet"
+        "slug": "abiot"
       },
       "a2b_min_deposit_amount": "12",
       "b2a_min_deposit_amount": "12",
@@ -228,7 +230,7 @@ array of `Blockchain`
       "b2a_fee_percent": "0.000000",
       "a2b_fee_min_amount": "11.55",
       "b2a_fee_min_amount": "11.55",
-      "connect_pair": "abcoretestnet-abiottestnet"
+      "connect_pair": "abcore-abiot"
     }
   ]
 }
@@ -247,6 +249,8 @@ array of `Blockchain`
 > | `recipient_blockchain` | `slug`    | slug of recipient blockchain                                               | 
 > | `deposit_blockchain`   | `slug`    | slug of deposit blockchain                                                 |
 
+if recipient blockchain is AB Core network, the address must be in checksum.
+
 #### Responses
 
 > | name                   | value     | desc                                                                       |
@@ -260,7 +264,7 @@ array of `Blockchain`
 #### Example cURL
 
 > ```bash
->  curl http://127.0.0.1:9399/v1/account?recipient_address=0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045&recipient_blockchain=abcore&deposit_blockchain=abiot
+>  curl http://127.0.0.1:9699/v1/account?recipient_address=0xd8dA6BF26964aF9D7eEd9e03E53415D37aA96045&recipient_blockchain=abcore&deposit_blockchain=abiot
 > ```
 
 ```json
@@ -343,8 +347,8 @@ the  `History` is as follow:
 
 ##### Example cURL
 
-> ```javascript
->  curl http://localhost:9399/v1/history
+> ```bash
+>  curl http://localhost:9699/v1/history
 > ```
 
 ```json
@@ -357,13 +361,13 @@ the  `History` is as follow:
     {
       "id": "3",
       "pair_id": "1",
-      "source_slug": "abiottestnet",
-      "source_network": "ABIoTTestnet",
-      "source_chain_id": "1007",
+      "source_slug": "abiot",
+      "source_network": "ABIoT",
+      "source_chain_id": "1012",
       "source_base_chain": "NewChain",
-      "destination_slug": "abcoretestnet",
-      "destination_network": "ABCoreTestnet",
-      "destination_chain_id": "26888",
+      "destination_slug": "abcore",
+      "destination_network": "ABCore",
+      "destination_chain_id": "36888",
       "destination_base_chain": "Ethereum",
       "source_deposit_address": "NEW17zVctFa42dC1rBNFPf775Bq34yiwWLz4GM1",
       "source_sender": "NEW17zS9ZvgGV1EaT8KT2tLjqRvQbcApjFot8xj",
@@ -441,17 +445,17 @@ The `totalSupply` of `AB` is the sum of the `supply` from each chain.
 
 ##### Example cURL
 
-> ```javascript
->  curl http://localhost:9399/v1/ab
+> ```bash
+>  curl http://localhost:9699/v1/ab
 > ```
 
 ```json
 {
   "chains": [
     {
-      "slug": "abcoretestnet",
-      "network": "ABCoreTestnet",
-      "chain_id": "26888",
+      "slug": "abcore",
+      "network": "ABCore",
+      "chain_id": "36888",
       "base_chain": "Ethereum",
       "status": "OK",
       "latest_height": "4648796",
@@ -461,9 +465,9 @@ The `totalSupply` of `AB` is the sum of the `supply` from each chain.
       "supply": "80.05"
     },
     {
-      "slug": "abiottestnet",
-      "network": "ABIoTTestnet",
-      "chain_id": "1007",
+      "slug": "abiot",
+      "network": "ABIoT",
+      "chain_id": "1012",
       "base_chain": "NewChain",
       "status": "OK",
       "latest_height": "15391173",
