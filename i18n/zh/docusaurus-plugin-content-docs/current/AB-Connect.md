@@ -93,7 +93,7 @@ array of `Blockchain`
 
 #### Example cURL
 
-> ```javascript
+> ```bash
 >  curl http://localhost:9699/v1/networks
 > ```
 
@@ -134,7 +134,7 @@ array of `Blockchain`
 
 #### Example cURL
 
-> ```javascript
+> ```bash
 >  curl http://localhost:9699/v1/connects
 > ```
 
@@ -189,7 +189,7 @@ array of `Blockchain`
 
 #### Example cURL
 
-> ```javascript
+> ```bash
 >  curl http://localhost:9699/v1/pairs
 > ```
 
@@ -248,6 +248,8 @@ array of `Blockchain`
 > | `recipient_address`    | `address` | recipient address on recipient blockchain, user's address to receive asset |
 > | `recipient_blockchain` | `slug`    | slug of recipient blockchain                                               | 
 > | `deposit_blockchain`   | `slug`    | slug of deposit blockchain                                                 |
+
+if recipient blockchain is AB Core network, the address must be in checksum.
 
 #### Responses
 
@@ -345,7 +347,7 @@ the  `History` is as follow:
 
 ##### Example cURL
 
-> ```javascript
+> ```bash
 >  curl http://localhost:9699/v1/history
 > ```
 
@@ -443,7 +445,7 @@ The `totalSupply` of `AB` is the sum of the `supply` from each chain.
 
 ##### Example cURL
 
-> ```javascript
+> ```bash
 >  curl http://localhost:9699/v1/ab
 > ```
 
