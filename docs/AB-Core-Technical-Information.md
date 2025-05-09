@@ -11,7 +11,7 @@ title: "AB Core Technical Information"
   [https://ab.org/](https://ab.org/)
 
 - **Blockchain Explorer**:  
-  - **Mainnet**: [N/A]  
+  - **Mainnet**: [https://explorer.core.ab.org/](https://explorer.core.ab.org/)
   - **Testnet**: [https://explorer.core.testnet.ab.org/](https://explorer.core.testnet.ab.org/)
 
 - **Blockchain Source Code**:  
@@ -52,7 +52,7 @@ However, AB Core currently supports up to the `Berlin` hard fork and does not im
 
 - **RPC Service Endpoints**:
   - **Mainnet (MainNet)**:  
-    - N/A
+    - [https://rpc1.core.ab.org](https://rpc1.core.ab.org)
   - **Testnet (TestNet)**:
     - [https://rpc.core.testnet.ab.org](https://rpc.core.testnet.ab.org)
 
