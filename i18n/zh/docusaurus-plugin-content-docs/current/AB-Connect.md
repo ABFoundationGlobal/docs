@@ -18,7 +18,7 @@ AB Connect 通过多个节点的分布式运营，构建去中心化的网络架
 
 ### **API Service Endpoints**:
   - **Mainnet (MainNet)**:  
-    - N/A
+    - [https://api.connect.ab.org](https://api.connect.ab.org)
   - **Testnet (TestNet)**:
     - [https://api.connect.testnet.ab.org](https://api.connect.testnet.ab.org)
 
