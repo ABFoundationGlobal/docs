@@ -1,40 +1,43 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: 'AB docs',
-  tagline: 'AB',
-  favicon: 'img/favicon.png',
-  url: 'https://docs.ab.org',
-  baseUrl: '/',
-  organizationName: 'AB', // Usually your GitHub org/user name.
-  projectName: 'docs', // Usually your repo name.
+  title: "AB docs",
+  tagline: "AB",
+  favicon: "img/favicon.png",
+  url: "https://docs.ab.org",
+  baseUrl: "/",
+  organizationName: "AB", // Usually your GitHub org/user name.
+  projectName: "docs", // Usually your repo name.
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en', 'zh'],
+    defaultLocale: "en",
+    locales: ["en", "zh"],
+    localeConfigs: {
+      en: {
+        label: "En",
+      },
+    },
   },
 
-  plugins: [
-    'docusaurus-plugin-sass'
-  ],
+  plugins: ["docusaurus-plugin-sass"],
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/ABFoundationGlobal/docs/edit/main/',
+          sidebarPath: "./sidebars.ts",
+          editUrl: "https://github.com/ABFoundationGlobal/docs/edit/main/",
           showLastUpdateAuthor: true,
           showLastUpdateTime: true,
           breadcrumbs: true,
@@ -56,7 +59,7 @@ const config: Config = {
         // },
         theme: {
           // customCss: './src/css/custom.css',
-          customCss: require.resolve('./src/css/custom.scss'),
+          customCss: require.resolve("./src/css/custom.scss"),
         },
       } satisfies Preset.Options,
     ],
@@ -66,57 +69,61 @@ const config: Config = {
     // Replace with your project's social card
     // image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'AB Docs',
+      title: "AB Docs",
       logo: {
-        alt: 'AB Docs Logo',
-        src: 'img/favicon.png',
+        alt: "AB Docs Logo",
+        src: "img/favicon.png",
       },
       items: [
         // {to: '/blog', label: 'Blog', position: 'left'},
-        { to: 'https://ab.org', label: 'AB', position: 'right' },
+        { to: "https://ab.org", label: "AB", position: "right" },
         {
-          type: 'localeDropdown',
-          position: 'right',
+          type: "localeDropdown",
+          position: "right",
         },
-        {
-          href: 'https://github.com/ABFoundationGlobal/docs',
-          position: 'right',
-          className: 'header-github-link',
-          'aria-label': 'GitHub repository',
-        },
+        // {
+        //   href: "https://github.com/ABFoundationGlobal/docs",
+        //   position: "right",
+        //   className: "header-github-link",
+        //   "aria-label": "GitHub repository",
+        // },
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Docs',
-          items: [
-            {
-              label: 'AB Technical Information',
-              to: '/docs/',
-            }
-          ],
+          title: "AB Docs",
+          className: "footer_logo",
         },
         {
-          title: 'Community',
+          title: "Docs",
           items: [
             {
-              label: 'AB',
-              href: 'https://ab.org',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/ABDAO_Global',
+              label: "AB Technical Information",
+              to: "/docs/",
             },
           ],
         },
         {
-          title: 'More',
+          title: "Community",
           items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/ABFoundationGlobal/docs',
+              label: "AB",
+              href: "https://ab.org",
+            },
+            {
+              label: "X",
+              href: "https://x.com/ABDAO_Global",
+            },
+          ],
+        },
+        {
+          title: "More",
+          items: [
+            {
+              label: "GitHub",
+              href: "https://github.com/ABFoundationGlobal/docs",
             },
           ],
         },
@@ -128,8 +135,8 @@ const config: Config = {
       darkTheme: prismThemes.dracula,
     },
     colorMode: {
-      defaultMode: 'dark',
-      disableSwitch: false,
+      defaultMode: "dark",
+      disableSwitch: true,
       respectPrefersColorScheme: false,
     },
   } satisfies Preset.ThemeConfig,
