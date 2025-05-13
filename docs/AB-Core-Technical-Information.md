@@ -4,7 +4,6 @@ slug: /core
 title: "AB Core Technical Information"
 ---
 
-
 ## Basic Information
 
 - **Official Website**:  
@@ -18,14 +17,13 @@ title: "AB Core Technical Information"
   [https://github.com/ABFoundationGlobal/abcore](https://github.com/ABFoundationGlobal/abcore)
 
 - **Circulation and Total Supply**:  
-  [https://ab.org/en/getab/](https://ab.org/en/getab/)
+  [https://ab.org/](https://ab.org/)
 
 ---
 
 ## Key Differences Between AB Core and Ethereum
 
-
-AB Core is fully compatible with Ethereum, supporting standard EVM contracts and developer tools. 
+AB Core is fully compatible with Ethereum, supporting standard EVM contracts and developer tools.
 
 However, AB Core currently supports up to the `Berlin` hard fork and does not implement EIP-1559 (BaseFee and gas burning) introduced in the London upgrade, nor any subsequent upgrades such as Shanghai or Dencun.
 
@@ -57,6 +55,7 @@ However, AB Core currently supports up to the `Berlin` hard fork and does not im
     - [https://rpc.core.testnet.ab.org](https://rpc.core.testnet.ab.org)
 
 - **ChainID**:
+
   - **Mainnet (MainNet)**: `36888`
   - **Testnet (TestNet)**: `26888`
 

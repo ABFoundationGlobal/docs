@@ -4,37 +4,39 @@ slug: /
 title: "AB IoT Technical Information"
 ---
 
-
 ## Basic Information
 
 - **Official Website**:  
   [https://ab.org/](https://ab.org/)
 
-- **Blockchain Explorer**:  
-  - **Mainnet**: [https://explorer.ab.org/](https://explorer.ab.org/)  
+- **Blockchain Explorer**:
+
+  - **Mainnet**: [https://explorer.ab.org/](https://explorer.ab.org/)
   - **Testnet**: [https://explorer.testnet.ab.org/](https://explorer.testnet.ab.org/)
 
 - **Blockchain Source Code**:  
   [https://github.com/newtonproject/newchain/](https://github.com/newtonproject/newchain/)
 
 - **Circulation and Total Supply**:  
-  [https://ab.org/en/getab/](https://ab.org/en/getab/)
+  [https://ab.org/](https://ab.org/)
 
 ---
 
 ## Key Differences Between AB IoT and Ethereum
 
-1. **Signature Algorithm**:  
+1. **Signature Algorithm**:
+
    - Ethereum uses `secp256k1`, while AB IoT uses `secp256r1`.
 
-2. **Address Representation**:  
-   - Addresses are transformed before being displayed to users.  
-   - Users see addresses starting with `NEW` (e.g., `NEW182F3f3q8CFM3od4RkjWPPEx6vAcBJpVdurC`).  
+2. **Address Representation**:
+
+   - Addresses are transformed before being displayed to users.
+   - Users see addresses starting with `NEW` (e.g., `NEW182F3f3q8CFM3od4RkjWPPEx6vAcBJpVdurC`).
    - The SDK provides code for two-way address conversion.
 
-3. **Address Validation**:  
-   - Ensure that the ChainID parsed from the user's submitted address matches the current network’s ChainID.  
-   - Failing to do so may result in transaction failures or asset loss.  
+3. **Address Validation**:
+   - Ensure that the ChainID parsed from the user's submitted address matches the current network’s ChainID.
+   - Failing to do so may result in transaction failures or asset loss.
    - For specific address parsing methods, refer to the example code.
 
 ---
@@ -59,13 +61,15 @@ title: "AB IoT Technical Information"
 ## API
 
 - **RPC Service Endpoints**:
-  - **Mainnet (MainNet)**:  
+
+  - **Mainnet (MainNet)**:
     - https://global.rpc.iot.ab.org
     - https://apne1.rpc.iot.ab.org
   - **Testnet (TestNet)**:  
     [https://rpc1.newchain.newtonproject.org](https://rpc1.newchain.newtonproject.org)
 
 - **ChainID**:
+
   - **Mainnet (MainNet)**: `1012`
   - **Testnet (TestNet)**: `1007`
 
@@ -117,3 +121,4 @@ title: "AB IoT Technical Information"
 "eth_getLogs",
 "eth_chainId",
 "eth_getProof"
+```
