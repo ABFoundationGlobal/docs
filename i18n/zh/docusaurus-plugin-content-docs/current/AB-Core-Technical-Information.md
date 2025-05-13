@@ -9,12 +9,12 @@ title: "AB Core 技术信息"
 1. 项目方官网
    - [https://ab.org/](https://ab.org/)
 2. 区块链浏览器地址
-   - 主网： [N/A]
-   - 测试网：[https://explorer.core.testnet.ab.org/](https://explorer.core.testnet.ab.org/)
+    - 主网： [https://explorer.core.ab.org/](https://explorer.core.ab.org/)
+    - 测试网：[https://explorer.core.testnet.ab.org/](https://explorer.core.testnet.ab.org/)
 3. 区块链源码：
-   - [https://github.com/ABFoundationGlobal/abcore](https://github.com/ABFoundationGlobal/abcore)
+    - [https://github.com/ABFoundationGlobal/abcore](https://github.com/ABFoundationGlobal/abcore)
 4. 发行量和流通量：
-   - [https://ab.org/](https://ab.org/)
+    - https://ab.org/
 
 ## AB Core 与 Ethereum 的主要区别：
 
@@ -35,12 +35,11 @@ AB Core 与 Ethereum 完全兼容，支持所有标准 EVM 合约与开发工具
 
 ## API
 
-1. RPC 服务地址
-
-   - 主网(MainNet):
-     - N/A
-   - 测试网(TestNet):
-     - [https://rpc.core.testnet.ab.org](https://rpc.core.testnet.ab.org)
+1. RPC服务地址
+    - 主网(MainNet):
+      - [https://rpc1.core.ab.org](https://rpc1.core.ab.org)
+    - 测试网(TestNet):
+      - [https://rpc.core.testnet.ab.org](https://rpc.core.testnet.ab.org)
 
 2. ChainID
 
