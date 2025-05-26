@@ -42,7 +42,7 @@ title: "AB IoT 技术信息"
      - https://global.rpc.iot.ab.org
      - https://apne1.rpc.iot.ab.org
    - 测试网(TestNet):
-     - https://rpc1.newchain.newtonproject.org
+     - https://rpc.iot.testnet.ab.org
 
 2. ChainID
 
