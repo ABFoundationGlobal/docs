@@ -66,7 +66,7 @@ title: "AB IoT Technical Information"
     - https://global.rpc.iot.ab.org
     - https://apne1.rpc.iot.ab.org
   - **Testnet (TestNet)**:  
-    [https://rpc1.newchain.newtonproject.org](https://rpc1.newchain.newtonproject.org)
+    [https://rpc.iot.testnet.ab.org](https://rpc.iot.testnet.ab.org)
 
 - **ChainID**:
 
