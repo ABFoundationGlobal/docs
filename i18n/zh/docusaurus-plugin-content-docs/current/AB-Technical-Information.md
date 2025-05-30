@@ -1,6 +1,6 @@
 ---
-sidebar_position: 1
-slug: /
+sidebar_position: 2
+slug: /iot
 title: "AB IoT 技术信息"
 ---
 
