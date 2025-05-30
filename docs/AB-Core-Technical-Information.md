@@ -1,6 +1,6 @@
 ---
-sidebar_position: 2
-slug: /core
+sidebar_position: 1
+slug: /
 title: "AB Core Technical Information"
 ---
 
