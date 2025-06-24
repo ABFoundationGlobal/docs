@@ -309,7 +309,7 @@ the  `History` is as follow:
 | Name | Type | Description |
 |------|------|-------------|
 | id | integer | Unique ID of the history record |
-| hash | string | Always 66 characters (0x + 64 hex digits), SHA-256 hash of concatenated network, chain ID, transaction hash, and transaction index |
+| hash | string | SHA-256 hash of concatenated network, chain ID, transaction hash, and transaction index |
 | pair_id | integer | Pair ID related to this transfer |
 | source_slug | string | Slug of the source blockchain |
 | source_network | string | Source network name |
@@ -358,7 +358,7 @@ Where:
 - `txHash`: The transaction hash on the source blockchain
 - `txIndex`: The transaction index within the block
 
-The result is a 64-character hexadecimal string prefixed with "0x" (total 66 characters).
+The result is a 64-character hexadecimal string.
 
 #### Example cURL
 
@@ -436,7 +436,7 @@ The result is a 64-character hexadecimal string prefixed with "0x" (total 66 cha
 
 > | name | value | desc |
 > |------|-------|------|
-> | `hash` | string | The hash of the history record (66 characters: 0x + 64 hex digits) |
+> | `hash` | string | The hash of the history record (64 hex digits) |
 
 #### Responses
 
@@ -455,19 +455,19 @@ Where:
 - `txHash`: The transaction hash on the source blockchain
 - `txIndex`: The transaction index within the block
 
-The result is a 64-character hexadecimal string prefixed with "0x" (total 66 characters).
+The result is a 64-character hexadecimal string.
 
 #### Example cURL
 
 > ```bash
->  curl http://localhost:9699/v1/history/hash?hash=0x7abaedaaed2f2da1ebc9c0622e06a80725149db5adf1df363c92011644de0b0f
+>  curl http://localhost:9699/v1/history/hash?hash=7abaedaaed2f2da1ebc9c0622e06a80725149db5adf1df363c92011644de0b0f
 > ```
 
 ```json
 {
   "history": {
     "id": "3",
-    "hash": "0x7abaedaaed2f2da1ebc9c0622e06a80725149db5adf1df363c92011644de0b0f",
+    "hash": "7abaedaaed2f2da1ebc9c0622e06a80725149db5adf1df363c92011644de0b0f",
     "pair_id": "1",
     "source_slug": "abiot",
     "source_network": "ABIoT",
