@@ -153,7 +153,6 @@ Comming soon...
   });
   ```
 - **Tron**: Check or switch networks via `tronProvider` (refer to TronLink documentation).
-- **Solana**: Set network via Wallet Adapter or `solanaProvider` (confirm specific method).
 
 ### 5.3 Error Handling
 Handle these cases:
