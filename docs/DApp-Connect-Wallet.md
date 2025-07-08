@@ -6,7 +6,6 @@ This document provides a guide for developers to integrate decentralized applica
 - **Environment Detection**: Use the provided `isInABWalletApp()` function to check if the user is in the ABWallet environment.
 - **EVM Connection**: Access via `window.abwallet.ethereum`, following MetaMask protocols.
 - **Tron Connection**: Access via `window.abwallet.tron`, similar to TronLink.
-- **Solana Connection**: Likely via `window.abwallet.solana` or Solana Wallet Adapter.
 - **Notes**: Handle user rejection cases and verify the correct network is selected.
 
 ---
