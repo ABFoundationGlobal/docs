@@ -177,8 +177,6 @@ Handle these cases:
 - **EVM**: Leverage `window.abwallet.ethereum` with MetaMask protocols.
 - **Tron**: Use `window.abwallet.tron`, similar to TronLink.
 
-Developers should consult ABWallet’s official documentation for the latest API details, especially for Solana.
-
 ## 7. Reference Resources
 - MetaMask Developer Documentation: [https://docs.metamask.io/](https://docs.metamask.io/)
 - TronLink Integration Documentation: [https://docs.tronlink.org/](https://docs.tronlink.org/)
