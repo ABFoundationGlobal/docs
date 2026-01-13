@@ -170,21 +170,24 @@ array of `Blockchain`
 
 #### Responses
 
-> | name                     | value                | desc                                |
-> |--------------------------|----------------------|-------------------------------------|
-> | `id`                     | pair id              | the id of pair                      |
-> | `asset_a_id`             | asset id             | the id of asset A                   |
-> | `asset_b_id`             | asset id             | the id of asset  B                  |
-> | `asset_a`                | `Asset`              | asset_a                             |
-> | `asset_b`                | `Asset`              | asset_b                             |
-> | `a2b_min_deposit_amount` | string, unit is AB   | min deposit amount for asset a to b |
-> | `b2a_min_deposit_amount` | string, unit is AB   | min deposit amount for asset b to a |
-> | `a2b_fee_percent`        | float, base on 10000 | fee percent for asset a to b        |
-> | `b2a_fee_percent`        | float, base on 10000 | fee percent for asset b to a        |
-> | `a2b_fee_min_amount`     | string, unit is AB   | min fee for asset a to b            |
-> | `b2a_fee_min_amount`     |string, unit is AB    | min fee for asset b to a            |
-> | `b2a_fee_min_amount`     |string, unit is AB    | min fee for asset b to a            |
-> | `connect_pair`            | string               | merge of blockchain slug for a-b    |
+> | name                             | value                | desc                                |
+> |----------------------------------|----------------------|-------------------------------------|
+> | `id`                             | pair id              | the id of pair                      |
+> | `asset_a_id`                     | asset id             | the id of asset A                   |
+> | `asset_b_id`                     | asset id             | the id of asset  B                  |
+> | `asset_a`                        | `Asset`              | asset_a                             |
+> | `asset_b`                        | `Asset`              | asset_b                             |
+> | `a2b_min_deposit_amount`         | string, unit is AB   | min deposit amount for asset a to b |
+> | `b2a_min_deposit_amount`         | string, unit is AB   | min deposit amount for asset b to a |
+> | `a2b_fee_percent`                | float, base on 10000 | fee percent for asset a to b        |
+> | `b2a_fee_percent`                | float, base on 10000 | fee percent for asset b to a        |
+> | `a2b_fee_min_amount`             | string, unit is AB   | min fee for asset a to b            |
+> | `b2a_fee_min_amount`             | string, unit is AB   | min fee for asset b to a            |
+> | `a2b_auto_confirm_deposit_amount`| string, unit is AB   | auto-confirm threshold for a to b   |
+> | `b2a_auto_confirm_deposit_amount`| string, unit is AB   | auto-confirm threshold for b to a   |
+> | `connect_pair`                   | string               | merge of blockchain slug for a-b    |
+> | `a2b_disabled`                   | bool                 | whether A→B transfer is disabled    |
+> | `b2a_disabled`                   | bool                 | whether B→A transfer is disabled    |
 
 
 #### Example cURL
@@ -230,7 +233,11 @@ array of `Blockchain`
       "b2a_fee_percent": "0.000000",
       "a2b_fee_min_amount": "11.55",
       "b2a_fee_min_amount": "11.55",
-      "connect_pair": "abcore-abiot"
+      "a2b_auto_confirm_deposit_amount": "20000000",
+      "b2a_auto_confirm_deposit_amount": "20000000",
+      "connect_pair": "abcore-abiot",
+      "a2b_disabled": false,
+      "b2a_disabled": false
     }
   ]
 }
@@ -283,17 +290,24 @@ if recipient blockchain is AB Core network, the address must be in checksum.
 
 #### Parameters
 
-> | name                     | value                                | desc                                        |
-> |--------------------------|--------------------------------------|---------------------------------------------|
-> | `page_id`                | uint64                               | `Optional`, page id, default 0              |
-> | `page_size`              | 50                                   | `Optional`, page size, default 50           |
-> | `source_deposit_address` | `address` on `source_blockchain`     | `deposit_address` get by `v1/account`       |
-> | `source_sender`          | `address` on `source_blockchain`     | the address who send AB to `deposit_address`|
-> | `source_blockchain`      | `slug` of `blockchain`               | slug of blockchain, get by `v1/networks`    |
-> | `destination_address`    | `address` on `destination_blockchain`| `deposit_address` get by `v1/account`       |
-> | `destination_blockchain` | `slug` of `blockchain`               | slug of blockchain                          |
+> | name                     | value                                | desc                                                                   |
+> |--------------------------|--------------------------------------|------------------------------------------------------------------------|
+> | `page_id`                | uint64                               | `Optional`, page id, default 0                                         |
+> | `page_size`              | uint64                               | `Optional`, page size, default 20, max 100                             |
+> | `source_deposit_address` | `address` on `source_blockchain`     | `Optional`, deposit address on source blockchain, get by `v1/account`  |
+> | `source_sender`          | `address` on `source_blockchain`     | `Optional`, the address who sent AB to deposit address                 |
+> | `source_blockchain`      | `slug` of `blockchain`               | `Optional`, slug of source blockchain,  get by `v1/networks`                                 |
+> | `source_asset_id`        | string                               | `Optional`, filter by source asset ID                                  |
+> | `source_tx_hash`         | string                               | `Optional`, filter by source transaction hash                          |
+> | `destination_address`    | `address` on `destination_blockchain`| `Optional`, recipient address on destination blockchain                |
+> | `destination_blockchain` | `slug` of `blockchain`               | `Optional`, slug of destination blockchain                             |
+> | `destination_asset_id`   | string                               | `Optional`, filter by destination asset ID                             |
+> | `destination_tx_hash`    | string                               | `Optional`, filter by destination transaction hash                     |
+> | `pair_id`                | string                               | `Optional`, filter by pair ID                                          |
+> | `status`                 | string                               | `Optional`, filter by status (`Deposit`,`Pending`,`Confirmed`,`Error`) |
+> | `order`                  | string                               | `Optional`, sort order by ID: `ASC` or `DESC` (default: `DESC`)        |
 
-if `address` and `blockchain` is empty, return all history 
+If all filter parameters are empty, returns all history records 
 
 #### Responses
 
@@ -465,44 +479,43 @@ The result is a 64-character hexadecimal string.
 
 ```json
 {
-  "history": {
-    "id": "3",
-    "hash": "7abaedaaed2f2da1ebc9c0622e06a80725149db5adf1df363c92011644de0b0f",
-    "pair_id": "1",
-    "source_slug": "abiot",
-    "source_network": "ABIoT",
-    "source_chain_id": "1012",
-    "source_base_chain": "NewChain",
-    "destination_slug": "abcore",
-    "destination_network": "ABCore",
-    "destination_chain_id": "36888",
-    "destination_base_chain": "Ethereum",
-    "source_deposit_address": "NEW17zVctFa42dC1rBNFPf775Bq34yiwWLz4GM1",
-    "source_sender": "NEW17zS9ZvgGV1EaT8KT2tLjqRvQbcApjFot8xj",
-    "destination_address": "0x7EdC0CaDD6c20811058D4FB3EDA6F9218cCC7332",
-    "source_block_number": "15368195",
-    "destination_block_number": "4579902",
-    "source_block_timestamp": "1746118154",
-    "destination_block_timestamp": "1746118194",
-    "source_tx_hash": "0x7abaedaaed2f2da1ebc9c0622e06a80725149db5adf1df363c92011644de0b0f",
-    "destination_tx_hash": "0xd4d5cea2d5ae6b89a70257cff068587938c367c6f5729a4929b974060ac3db1b",
-    "source_asset_id": "2",
-    "source_asset_address": "",
-    "source_asset_name": "AB",
-    "source_asset_symbol": "AB",
-    "source_asset_decimals": 18,
-    "source_asset_type": "Coin",
-    "destination_asset_id": "1",
-    "destination_asset_address": "",
-    "destination_asset_name": "AB",
-    "destination_asset_symbol": "AB",
-    "destination_asset_decimals": 18,
-    "destination_asset_type": "Coin",
-    "source_amount": "100",
-    "destination_amount": "88.45",
-    "fee": "11.55",
-    "status": "Confirmed"
-  }
+  "id": "3",
+  "hash": "c78b39cbd08e12dd4357c4016592c3bd975f9fe32a55887dfa75ce8d79234488",
+  "pair_id": "1",
+  "source_slug": "abiot",
+  "source_network": "ABIoT",
+  "source_chain_id": "1012",
+  "source_base_chain": "NewChain",
+  "destination_slug": "abcore",
+  "destination_network": "ABCore",
+  "destination_chain_id": "36888",
+  "destination_base_chain": "Ethereum",
+  "source_deposit_address": "NEW17zVctFa42dC1rBNFPf775Bq34yiwWLz4GM1",
+  "source_sender": "NEW17zS9ZvgGV1EaT8KT2tLjqRvQbcApjFot8xj",
+  "destination_address": "0x7EdC0CaDD6c20811058D4FB3EDA6F9218cCC7332",
+  "source_block_number": "15368195",
+  "destination_block_number": "4579902",
+  "source_block_timestamp": "1746118154",
+  "destination_block_timestamp": "1746118194",
+  "source_tx_hash": "0x7abaedaaed2f2da1ebc9c0622e06a80725149db5adf1df363c92011644de0b0f",
+  "destination_tx_hash": "0xd4d5cea2d5ae6b89a70257cff068587938c367c6f5729a4929b974060ac3db1b",
+  "source_asset_id": "2",
+  "source_asset_address": "",
+  "source_asset_name": "AB",
+  "source_asset_symbol": "AB",
+  "source_asset_decimals": 18,
+  "source_asset_type": "Coin",
+  "destination_asset_id": "1",
+  "destination_asset_address": "",
+  "destination_asset_name": "AB",
+  "destination_asset_symbol": "AB",
+  "destination_asset_decimals": 18,
+  "destination_asset_type": "Coin",
+  "source_amount": "100",
+  "destination_amount": "88.45",
+  "fee": "11.55",
+  "status": "Confirmed",
+  "status_message": "Confirmed"
 }
 ```
 
