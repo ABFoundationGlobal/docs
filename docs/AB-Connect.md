@@ -441,7 +441,6 @@ The result is a 64-character hexadecimal string.
 </details>
 
 
-</details>
 
 <details>
  <summary><code>GET</code> <code><b>/v1/history/hash</b></code> <code>(get history by hash)</code></summary>
