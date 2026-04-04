@@ -12,7 +12,7 @@ title: "AB IoT 技术信息"
    - 主网： https://explorer.ab.org/
    - 测试网： https://explorer.testnet.ab.org/
 3. 区块链源码：
-   - https://github.com/newtonproject/newchain/
+   - https://github.com/ABFoundationGlobal/abiot
 4. 发行量和流通量：
    - https://ab.org/
 
@@ -32,7 +32,7 @@ title: "AB IoT 技术信息"
 3. 普通交易安全到账所需的确认区块数量
    - 20 个区块确认后可以认为安全。
 4. 自建节点
-   - https://github.com/newtonproject/newchain-deploy
+   - https://github.com/ABFoundationGlobal/ab-deploy
 
 ## API
 
@@ -51,7 +51,7 @@ title: "AB IoT 技术信息"
 
 3. 示例代码：
 
-   - https://github.com/newtonproject/newchain-sdk-example
+   - https://github.com/ABFoundationGlobal/abiot-sdk-example
 
 4. 目前 AB IoT 提供的 RPC 服务开放使用的 API 包括如下：（如需更多接口请自建节点）
 
