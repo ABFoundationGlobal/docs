@@ -15,7 +15,7 @@ title: "AB IoT Technical Information"
   - **Testnet**: [https://explorer.testnet.ab.org/](https://explorer.testnet.ab.org/)
 
 - **Blockchain Source Code**:  
-  [https://github.com/newtonproject/newchain/](https://github.com/newtonproject/newchain/)
+  [https://github.com/ABFoundationGlobal/abiot](https://github.com/ABFoundationGlobal/abiot)
 
 - **Circulation and Total Supply**:  
   [https://ab.org/](https://ab.org/)
@@ -54,7 +54,7 @@ title: "AB IoT Technical Information"
   A transaction is considered secure after 20 block confirmations.
 
 - **Node Deployment**:  
-  [https://github.com/newtonproject/newchain-deploy](https://github.com/newtonproject/newchain-deploy)
+  [https://github.com/ABFoundationGlobal/ab-deploy](https://github.com/ABFoundationGlobal/ab-deploy)
 
 ---
 
@@ -74,7 +74,7 @@ title: "AB IoT Technical Information"
   - **Testnet (TestNet)**: `1007`
 
 - **Sample Code**:  
-  [https://github.com/newtonproject/newchain-sdk-example](https://github.com/newtonproject/newchain-sdk-example)
+  [https://github.com/ABFoundationGlobal/abiot-sdk-example](https://github.com/ABFoundationGlobal/abiot-sdk-example)
 
 - **Available RPC APIs**:  
   Currently, AB IoT provides the following APIs for open use. For additional APIs, deploy your own node:
