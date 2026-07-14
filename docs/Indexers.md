@@ -9,7 +9,7 @@ Envio is the data layer for blockchain apps. It gives AB developers the fastest,
 
 ## Envio
 
-[Envio](https://envio.dev/?utm_source=ab&utm_medium=partner-docs) is a data indexing framework for building backends that serve onchain data to your app.
+[Envio](https://envio.dev/?utm_source=ab&utm_medium=partner-docs) provides HyperIndex, a full-featured indexing framework, and HyperSync, a high-speed data engine, so AB developers can turn smart contract events into a queryable GraphQL API.
 
 AB is supported on Envio HyperSync, a high-speed data source that can be up to 2000x faster than standard RPC. You can index AB with HyperIndex, define the events and entities you care about, and serve them through a ready to use GraphQL API.
 
